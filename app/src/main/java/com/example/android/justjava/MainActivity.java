@@ -31,9 +31,9 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
-        int numberOfCoffees=2;
-        display(numberOfCoffees);
-        displayPrice(numberOfCoffees*5);
+        int quantity=5;
+        display(quantity);
+        displayPrice(quantity*5);
 
     }
 
@@ -52,4 +52,21 @@ public class MainActivity extends AppCompatActivity {
         TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
         priceTextView.setText(java.text.NumberFormat.getCurrencyInstance().format(number));
     }
+
+    /** Let the mess begin..................................................... */
+    /** triggers the + button */
+    public void increment(View view) {
+        int quantity=3;
+        display(quantity);
+    }
+    /** triggers the - button */
+    public void decrement(View view) {
+        int quantity=1;
+        display(quantity);
+    }
+
+
+
+
+
 }
