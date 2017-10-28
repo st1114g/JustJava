@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     /** triggers the - button */
     public void decrement(View view) {
         quantity = quantity - 1;
-        displayQuantity (quantity);
+        displayQuantity(quantity);
     }
 
     public void submitOrder(View view) {
@@ -50,7 +50,18 @@ public class MainActivity extends AppCompatActivity {
         String priceMessage = "Total:= $" + price + "\nThank you!";
         displayMessage(priceMessage);
 
+        calculatePrice(quantity, 10);
     }
+
+    /**
+     * Calculates the price of the order.
+     *
+     * @param quantity is the number of cups of coffee ordered
+     */
+    private void calculatePrice(int quantity, int pricePerCup) {
+        int price = quantity * pricePerCup;
+    }
+
 
     /**
      * This method displays the given quantity value on the screen.
