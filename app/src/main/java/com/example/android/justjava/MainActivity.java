@@ -67,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
     /** Order Summary.
      * @param price of order.
      * @return text summary.
+     * now what?
      *
      */
 
