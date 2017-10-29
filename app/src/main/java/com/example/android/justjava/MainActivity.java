@@ -53,8 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void submitOrder(View view) {
         int price = calculatePrice();
-        String priceMessage = createOrderSummary(price);
-        displayMessage(priceMessage);
+        displayMessage(createOrderSummary(price));
     }
 
     /**
@@ -63,18 +62,19 @@ public class MainActivity extends AppCompatActivity {
      * @return total price
      */
     private int calculatePrice() {
-        int price = quantity * pricePerCup;
-        return price;
+        return quantity * pricePerCup;
     }
     /** Order Summary.
+     * @param price of order.
+     * @return text summary.
      *
      */
 
     private String createOrderSummary(int price) {
         String priceMessage = "Name: Kaptain Kunal";
-        priceMessage = priceMessage + "\nQuantity: " + quantity;
-        priceMessage = priceMessage + "\nTotal= $" + price;
-        priceMessage = priceMessage + "\nThank you!";
+        priceMessage += "\nQuantity: " + quantity;
+        priceMessage += "\nTotal= $" + price;
+        priceMessage += "\nThank you!";
         return priceMessage;
     }
     /**
