@@ -1,9 +1,8 @@
 /**
  * IMPORTANT: Add your package below. Package name can be found in the project's AndroidManifest.xml file.
  * This is the package name our example uses:
- *
- * package com.example.android.justjava; 
- *
+ * <p>
+ * package com.example.android.justjava;
  */
 
 package com.example.android.justjava;
@@ -22,6 +21,8 @@ import static android.R.attr.id;
 public class MainActivity extends AppCompatActivity {
 
     int quantity = 0;
+    int pricePerCup = 5;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,34 +35,37 @@ public class MainActivity extends AppCompatActivity {
      */
 
     /** Let the mess begin..................................................... */
-    /** triggers the + button */
+    /**
+     * triggers the + button
+     */
     public void increment(View view) {
         quantity = quantity + 1;
         displayQuantity(quantity);
     }
-    /** triggers the - button */
+
+    /**
+     * triggers the - button
+     */
     public void decrement(View view) {
         quantity = quantity - 1;
         displayQuantity(quantity);
     }
 
     public void submitOrder(View view) {
-        int price = quantity * 5;
+        int price = calculatePrice();
         String priceMessage = "Total:= $" + price + "\nThank you!";
         displayMessage(priceMessage);
-
-        calculatePrice(quantity, 10);
     }
 
     /**
      * Calculates the price of the order.
      *
-     * @param quantity is the number of cups of coffee ordered
+     * @return total price
      */
-    private void calculatePrice(int quantity, int pricePerCup) {
+    private int calculatePrice() {
         int price = quantity * pricePerCup;
+        return price;
     }
-
 
     /**
      * This method displays the given quantity value on the screen.
@@ -86,11 +90,6 @@ public class MainActivity extends AppCompatActivity {
         TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
         priceTextView.setText(message);
     }
-
-
-
-
-
 
 
 }
