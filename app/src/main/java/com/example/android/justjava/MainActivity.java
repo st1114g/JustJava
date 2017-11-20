@@ -95,6 +95,8 @@ public class MainActivity extends AppCompatActivity {
      * @return text summary.
      * @param addWC shows whether or not we have whipped cream added to the order.
      * @param addChoc is whether or not the user wants chocolate topping
+     * @param name is name of customer
+     *
      *
      */
 
