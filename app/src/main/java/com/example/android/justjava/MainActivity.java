@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import static android.R.attr.id;
@@ -31,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
+
+
 
     /**
      * This method is called when the order button is clicked.
@@ -62,10 +65,21 @@ public class MainActivity extends AppCompatActivity {
         boolean hasChoc = chocCheckBox.isChecked();
         Log.v("MainActivity", "Has Chocolate " + hasChoc);
 
+        EditText nameField = (EditText)findViewById(R.id.name_field);
+        String name = nameField.getText().toString();
+        Log.v("MainActivity", "Name: " + name);
+
+
+
+
+
+
+
+
 
 
         int price = calculatePrice();
-        displayMessage(createOrderSummary(price, hasWc, hasChoc));
+        displayMessage(createOrderSummary(price, hasWc, hasChoc, name ));
     }
 
     /**
@@ -84,8 +98,8 @@ public class MainActivity extends AppCompatActivity {
      *
      */
 
-    private String createOrderSummary(int price, boolean addWC, boolean addChoc) {
-        String priceMessage = "Name: Lyla the Labyrinth";
+    private String createOrderSummary(int price, boolean addWC, boolean addChoc, String name) {
+        String priceMessage = "Name: " + name;
         priceMessage += "\nChocolate?: " + addChoc;
         priceMessage += "\nWhipped Cream?: " + addWC;
         priceMessage += "\nQuantity: " + quantity;
