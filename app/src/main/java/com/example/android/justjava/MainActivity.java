@@ -58,10 +58,14 @@ public class MainActivity extends AppCompatActivity {
         boolean hasWc = wcCheckBox.isChecked();
         Log.v("MainActivity", "Has whipped cream? " + hasWc);
 
+        CheckBox chocCheckBox = (CheckBox) findViewById(R.id.choc_checkbox);
+        boolean hasChoc = chocCheckBox.isChecked();
+        Log.v("MainActivity", "Has Chocolate " + hasChoc);
+
 
 
         int price = calculatePrice();
-        displayMessage(createOrderSummary(price, hasWc));
+        displayMessage(createOrderSummary(price, hasWc, hasChoc));
     }
 
     /**
@@ -76,12 +80,13 @@ public class MainActivity extends AppCompatActivity {
      * @param price of order.
      * @return text summary.
      * @param addWC shows whether or not we have whipped cream added to the order.
-     * now what?
+     * @param addChoc is whether or not the user wants chocolate topping
      *
      */
 
-    private String createOrderSummary(int price, boolean addWC) {
+    private String createOrderSummary(int price, boolean addWC, boolean addChoc) {
         String priceMessage = "Name: Lyla the Labyrinth";
+        priceMessage += "\nChocolate?: " + addChoc;
         priceMessage += "\nWhipped Cream?: " + addWC;
         priceMessage += "\nQuantity: " + quantity;
         priceMessage += "\nTotal= $" + price;
